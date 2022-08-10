@@ -3,7 +3,7 @@ Cypress Tests for the public facing Willamette web site
 
 # Installing
 
-After the standard ```git clone``` of this repository enter ```npm install``` to install the node modules (alternatively use ```yarn install`` if you prefer yarn).
+After the standard ```git clone``` of this repository enter ```npm install``` to install the node modules (alternatively use ```yarn install``` if you prefer yarn).
 
 ## Installation Prerequisites
 
