@@ -26,4 +26,12 @@ describe('Willamette Home Page', () => {
     cy.get(`${baseSelector}`).eq(3).invoke('text').should('match', /request info/i)
     cy.get(`${baseSelector}`).eq(4).invoke('text').should('match', /give/i)
   })
+
+  // Note, the button includes text ("Explore"), and a div
+  // So this test looks for it containing "Explore"
+  it('Displays the explore button', () => {
+    cy.get('.site-header__explore').should('have.length', 1)
+    cy.get('.site-header__explore button').first().should('contain.text', 'Explore')
+  })
+
 })
