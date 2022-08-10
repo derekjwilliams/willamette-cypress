@@ -1,0 +1,22 @@
+{
+  "name": "willamette-cypress",
+  "version": "1.0.0",
+  "description": "Cypress Tests for the public facing Willamette web site",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/derekjwilliams/willamette-cypress.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/derekjwilliams/willamette-cypress/issues"
+  },
+  "homepage": "https://github.com/derekjwilliams/willamette-cypress#readme",
+  "devDependencies": {
+    "cypress": "^10.4.0"
+  }
+}
