@@ -64,6 +64,8 @@ For most testing this is not a big issue, however there are workarounds using co
 
 # Simple Willamett Home Page Test
 
+This test verifies that there are 5 items in the main menu and that the are in order with the correct test.  It performs a case insensitve comparison using regex for "apply", "visit", "study", "request info", and "give".
+
 ```JavaScript
 it('displays the navigation menu with N items', () => {
   const baseSelector = '.site-header__nav ul .site-header__nav__list a'
