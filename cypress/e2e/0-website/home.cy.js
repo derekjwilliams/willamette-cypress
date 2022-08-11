@@ -27,11 +27,39 @@ describe('Willamette Home Page', () => {
     cy.get(`${baseSelector}`).eq(4).invoke('text').should('match', /give/i)
   })
 
-  // Note, the button includes text ("Explore"), and a div
+  // Note, the button includes text ("Explore"), and a div with lines graphic
   // So this test looks for it containing "Explore"
   it('Displays the explore button', () => {
     cy.get('.site-header__explore').should('have.length', 1)
-    cy.get('.site-header__explore button').first().should('contain.text', 'Explore')
+    cy.get('.site-header__explore .menu-toggle__lines').should('have.length', 1)
+    cy.get('.site-header__explore button').eq(0).invoke('text').should('match', /Explore/i)
   })
 
+  it('Displays the search icon', () => {
+    cy.get('.site-header__search__toggle__button .search-button .search-icon').should('have.length', 1)
+  })
+
+  it('Verify the two search buttons (one is not visible initially)', () => {
+    cy.get('.search-button .search-icon').should('have.length', 2)
+  })
+
+  it('Verify the Undergraduate and Graduate links', () => {
+    const baseSelector = '.home-hero .button-group > a'
+    cy.get(baseSelector).should('have.length', 2)
+
+    cy.get(baseSelector).each(anchor => {
+      expect(anchor).to.not.have.attr("href", "#undefined")
+    });
+
+    cy.get(baseSelector).eq(0)
+      .invoke('attr', 'href')
+      .should('equal', 'https://willamette.edu/undergraduate/index.html')
+
+      cy.get(baseSelector).eq(1)
+      .invoke('attr', 'href')
+      .should('equal', 'https://willamette.edu/graduate-programs/index.html')
+
+    cy.get(baseSelector).eq(0).invoke('text').should('match', /Undergraduate programs/i)
+    cy.get(baseSelector).eq(1).invoke('text').should('match', /Graduate programs/i)
+  })
 })
