@@ -73,9 +73,15 @@ describe('Willamette Undergraduate Page', () => {
     ['http://pnca.willamette.edu/academics/bfa/video-sound', ''],
     ['wgs/index.html', 'Women\'s and Gender Studies Program Information'],
   ])
+
+  const MinorPrograms = ['arch/index.html', 'arts/index.html'] // Finish this array
   beforeEach(() => {
     cy.visit('https://willamette.edu/undergraduate/')
   })
+
+  // it Make sure that there is more than one card
+  // it Make sure that there is more than one card with majors 
+  // it Make sure that there is more than one card with minors 
 })
 
 
