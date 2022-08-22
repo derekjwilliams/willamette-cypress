@@ -79,7 +79,13 @@ describe('Willamette Undergraduate Page', () => {
     cy.visit('https://willamette.edu/undergraduate/')
   })
 
-  // it Make sure that there is more than one card
+  it('Ensures that there is more than one card', () => {
+    const card = cy.get('.card')
+
+    card.eq(0).should('be.visible') // make sure the first card is displayed
+    card.its('length').should('be.gte', 1) // make sure there is at least one on the page
+  })
+
   // it Make sure that there is more than one card with majors 
   // it Make sure that there is more than one card with minors 
 })

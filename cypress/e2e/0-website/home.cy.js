@@ -53,6 +53,11 @@ describe('Willamette Home Page, Above the fold', () => {
   })
 
   it('Verify the Undergraduate and Graduate links', () => {
+
+    const linkToIndex = new Map([
+      ["undergraduate", 0],
+      ["graduate", 1]
+    ])
     const baseSelector = '.home-hero .button-group > a'
     cy.get(baseSelector).should('have.length', 2)
 
@@ -60,16 +65,16 @@ describe('Willamette Home Page, Above the fold', () => {
       expect(anchor).to.not.have.attr("href", "#undefined")
     });
 
-    cy.get(baseSelector).eq(0)
+    cy.get(baseSelector).eq(linkToIndex.get('undergraduate'))
       .invoke('attr', 'href')
       .should('equal', 'https://willamette.edu/undergraduate/index.html')
 
-    cy.get(baseSelector).eq(1)
+    cy.get(baseSelector).eq(linkToIndex.get('graduate'))
       .invoke('attr', 'href')
       .should('equal', 'https://willamette.edu/graduate-programs/index.html')
 
-    cy.get(baseSelector).eq(0).invoke('text').should('match', /Undergraduate programs/i)
-    cy.get(baseSelector).eq(1).invoke('text').should('match', /Graduate programs/i)
+    cy.get(baseSelector).eq(linkToIndex.get('undergraduate')).invoke('text').should('match', /Undergraduate programs/i)
+    cy.get(baseSelector).eq(linkToIndex.get('graduate')).invoke('text').should('match', /Graduate programs/i)
   })
 })
 

@@ -32,6 +32,7 @@ describe('Willamette Home Page', () => {
   })
 
   it('Click to navigate to Hallie Ford', () => {
+    // force the link to open in the same window (as this link navigates to a different site, in a different window, by default)
     cy.contains('.list-nav__link', 'Hallie Ford').invoke('removeAttr', 'target').invoke('removeAttr', 'rel').click()
     cy.location('pathname').should('include', 'academics/graduate')
   })
